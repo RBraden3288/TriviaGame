@@ -1,0 +1,65 @@
+body {
+    background-image: url("/Users/randall/Desktop/BOOTCAMP-HOMEWORK/TriviaGame/assets/images/21fbc51f80876ec00ca761502b9faea4.jpg");
+    background-size:     cover;                      
+    background-repeat:   no-repeat;
+    background-position: center center; 
+    color:               antiquewhite;
+    font-family:         'Cardo', serif;
+}
+
+#heading {
+    font-stretch:   semi-expanded;
+    font-size:      30px;
+    text-shadow:    2px 2px 4px rgb(207, 222, 228);
+    text-align:     center;
+    padding:        5px 10px;
+}
+#content {
+    background: -webkit-linear-gradient(to right, #6499b5, #000000);
+    background:    -moz-linear-gradient(to right, #6499b5, #000000);
+    background:         linear-gradient(to right, #6499b5, #000000);
+    opacity:    .7;
+    width:      70%;
+    margin:     5% 13%;
+    text-align: center;
+}
+
+button {
+    background-color: #000000;
+    color:            antiquewhite;
+    font-family:      'Cardo', serif;
+    font-size:        25px;
+    margin:           10px 20%;
+    padding:          10px;
+    border-radius:    20px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: #6499b5; 
+    color: white;
+  }
+
+  
+  #submit {
+      background-color: #000000;
+      color:            antiquewhite;
+      font-family:      'Cardo', serif;
+      font-size:        15px;
+      margin:           10px 20%;
+      padding:          10px;
+      border-radius:    20px;
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+    }
+    
+    #submit:hover {
+        background-color: #6499b5; 
+        color: white;
+    }
+    
+    #time {
+        font-size: 24px;
+        text-shadow: 2px 2px 2px rgb(207, 222, 228);
+    }
