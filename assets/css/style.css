@@ -19,8 +19,10 @@ body {
     background:    -moz-linear-gradient(to right, #6499b5, #000000);
     background:         linear-gradient(to right, #6499b5, #000000);
     opacity:    .7;
+    box-shadow: 10px 15px 5px #000000;
     width:      70%;
     margin:     5% 13%;
+    border-radius: 5%;
     text-align: center;
 }
 
