@@ -3,6 +3,10 @@ A basic trivia game using JavaScript for the logic and jQuery to manipulate HTML
 
 I was able to create my HTML and CSS pages without a problem. 
 
+My first attempt at writing this game focused on writing Javascript code for the questions and answers and having them display on the page correctly. Then when I tried to build my timer around the questions and answers, it simply didn't work.
+
+My second attempt at writing this game focused on building the timer first and the questions and answers second. This worked much better because I found the function of my game was heavily reliant on a working timer. 
+
 After rewriting the Javascript and JQuery code multiple times, I have a game that displays a working start page,a time function, a question and answer display, and a results page.
 
 However, the radio buttons that were extracted from Bootstrap only work once for ALL questions and I cannot get it to work for each, INDIVIDUAL question. With that in mind, I couldn't get my score to properly work without the former issue being worked out.
