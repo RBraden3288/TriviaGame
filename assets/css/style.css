@@ -63,5 +63,9 @@ button:hover {
     
     #time {
         font-size: 24px;
-        text-shadow: 2px 2px 2px rgb(207, 222, 228);
+        /* text-shadow: 2px 2px 2px rgb(207, 222, 228); */
+    }
+
+    #questions {
+        height: auto;
     }
