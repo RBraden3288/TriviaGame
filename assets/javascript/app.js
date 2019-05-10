@@ -1,51 +1,64 @@
 //VARIABLES
 var correct =   0;       //displays number correct
-var incorrect = 10;       //displays incorrect
+var incorrect = 0;       //displays incorrect
 
 //QUESTIONS AND ANSWERS
 
 var questions = [
     {
     question: "Which of these is NOT a name of the Stark children's direwolves?",
-    answer: [" Nymeria", " Ghost", " Lightning"],
-    correct: 2,
+    answer: [" Nymeria", " Ghost", "Lightning"],
+    correct: "Lightning",
 }, {
     question: "Which of these is the name given to the bastards of Dorne?",
-    answer: [" Sand", " Pyke", " Snow"],
-    correct: 0,
+    answer: ["Sand", " Pyke", " Snow"],
+    correct: "Sand",
 }, {
     question: "Who is king of Westeros when the the series begins?",
-    answer: [" Aegon Targaryan", " Robert Baratheon", " Tywin Lannister"],
-    correct: 1,
+    answer: [" Aegon Targaryan", "Robert Baratheon", " Tywin Lannister"],
+    correct: "Robert Baratheon",
 }, {
     question: "What must an Unsullied kill to prove he has no mercy or weakness?",
-    answer: [" A White-Walker", " A dragon", " A newborn slave child"],
-    correct: 2,
+    answer: [" A White-Walker", " A dragon", "A newborn slave child"],
+    correct: "A newborn slave child",
 }, {
     question: "Which of the following types of wine does the wine merchant attempt to poison Daenerys with?",
-    answer: [" Stormland Red", " Arbor Red", " Merlot"],
-    correct: 1,
+    answer: [" Stormland Red", "Arbor Red", " Merlot"],
+    correct: "Arbor Red",
 }, {
     question: " What is the name of Arya Stark's sword?",
-    answer: [" Needle", " Pincer", " Valyrian"],
-    correct: 0,
+    answer: ["Needle", " Pincer", " Valyrian"],
+    correct: "Needle",
 }, {
     question: "What house has a sigil of a lion?",
-    answer:  [" House Lannister", " House Tully", "House Fray"],
-    correct: 0,
+    answer:  ["House Lannister", " House Tully", "House Fray"],
+    correct: "House Lannister",
 }, {
     question: "By what name do the Seven Kingdoms refer to the Free Folk who live in north beyond the Wall?",
-    answer: [" Andals", " Wildlings", " Crow"],
-    correct: 1,
+    answer: [" Andals", "Wildlings", " Crow"],
+    correct: "Wildlings",
 }, {
     question: "How many men did Theon Greyjoy use to capture Winterfell?",
-    answer: [" 2000", " 200", " 20"],
-    correct: 2,
+    answer: [" 2000", " 200", "20"],
+    correct: "20",
 }, {
     question: "Who is Jon Snow's mother?",
-    answer: [" Lyanna Stark", " Lyanna Mormont", " Caitlyn Stark"],
-    correct: 0,
+    answer: ["Lyanna Stark", " Lyanna Mormont", " Caitlyn Stark"],
+    correct: "Lyanna Stark",
 }];
+console.log(questions[0].answer.length);
+var correctAnswers = [
+    "Lightning",
+    "Sand",
+    "Robert Baratheon",
+    "A newborn slave child",
+    "Arbor Red",
+    "Needle",
+    "House Lannister",
+    "Wildlings",
+    "20",
+    "Lyanna Stark",
+]
 
 //CREATE A FUNCTION THAT LOOPS THROUGH EACH QUESTIONS
 
@@ -61,10 +74,11 @@ function displayQ(){
         // var answer2 = questions[i].answer[2];
         // $("#questions").append('<input type="radio" name="'+ i +'">' + answer2 + "<br>"); 
         //Below is a way to DRY code lines 56-63 by looping through the answer array with the question array
+        //added a name attribute (value)
     for (var j = 0; j <questions[i].answer.length; j++){
-        $("#questions").append('<input type="radio" name="'+ i +'">' + questions[i].answer[j] + "<br>");
+        $("#questions").append('<input type="radio" id="radio" value="'+ questions[i].answer[j] +'" name="'+ i +'">' + questions[i].answer[j] + "<br>");
 }
-        console.log(questions)
+        // console.log(questions)
         // BOOTSTRAP EX:
         // var answer2 = questions[i].answer[2];
         // $("#questions").append('<div class="form-check"><input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked><label class="form-check-label" for="exampleRadios1">' + answer2 + '</label></div><p>');   
@@ -72,16 +86,48 @@ function displayQ(){
 }
 
 //RESULTS
-//convert the index value into a number
-function scoreTracker(){
-    if (questions.answer[i] == questions.correct[i]) {
-        correct++;          //if answer is correct
+function gatherAnswer(){
+    //find everything that is selected by a radiobutton
+    var q1 = $("input[name=0]:checked").val();
+    var q2 = $("input[name=1]:checked").val();
+    var q3 = $("input[name=2]:checked").val();
+    var q4 = $("input[name=3]:checked").val();
+    var q5 = $("input[name=4]:checked").val();
+    var q6 = $("input[name=5]:checked").val();
+    var q7 = $("input[name=6]:checked").val();
+    var q8 = $("input[name=7]:checked").val();
+    var q9 = $("input[name=8]:checked").val();
+    var q10 = $("input[name=9]:checked").val();
+    //gather an array of user choices
+    var userSubmission = [
+        q1,
+        q2,
+        q3,
+        q4,
+        q5,
+        q6,
+        q7,
+        q8,
+        q9,
+        q10,
+    ];
+    console.log(userSubmission);
+    //compare user submission with the correct answer arrays
+    for (var i = 0; i < correctAnswers.length; i++) {
+        if (userSubmission[i] === correctAnswers[i]){
+            correct++
         } else {
-        incorrect--         //else answer is incorrect
-    }
+            incorrect++
+        }
+    };
+    console.log(correct);
+    $("#results").html("<h3>Your score:<h3>Correct: " + correct +"<br>Incorrect: "+ incorrect);   
 };
 
-var resultsHolder = $("#results").html("<h3>Your score:<h3>Correct: " + correct +"<br>Incorrect: "+ incorrect);
+//convert the index value into a number
+
+
+// var resultsHolder = $("#results").html("<h3>Your score:<h3>Correct: " + correct +"<br>Incorrect: "+ incorrect);
 
 $("#results").hide();
 $("#submit").hide();
@@ -107,7 +153,7 @@ var gameClock = {
         $("#time").hide();                  //hide timer
         $("#questions").hide();
         $("#submit").hide();                //hide submit button
-        resultsHolder;                      //initiate results variable
+        // resultsHolder;                      //initiate results variable
         $("#results").show();               //show results
       }
     },
@@ -124,11 +170,12 @@ $(document).ready(function(){
     })
     
     $("#submit").click(function(){
+        gatherAnswer();
         $("#submit").hide();
         $("#time").hide();
         $("#questions").hide();
         gameClock = false;
-        resultsHolder;
+        // resultsHolder;
         $("#results").show();
     });
 });
